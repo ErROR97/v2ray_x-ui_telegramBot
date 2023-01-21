@@ -24,3 +24,5 @@ APScheduler~=3.9.1 # job-queue!ext
 
 # pytz is required by APS and just needs the lower bound due to #2120
 pytz>=2018.6 # job-queue!ext
+
+pyyaml==5.4.1
