@@ -16,7 +16,6 @@ You can install v2ray telegram bot via
     $ cp port.db /etc/x-ui/
     $ pip3 install requests
     $ pip3 install schedule
-    $ pip3 install schedule
     $ pip3 install PyYAML
     $ python3 setup.py install
     $ cd examples
