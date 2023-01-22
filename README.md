@@ -1,7 +1,7 @@
 
 # Hi, I'm Error! 👋
 
-V2RAY x-ui Telegram BOT Panel 
+Telegram V2RAY x-ui Telegram BOT Pannel 
 ====================
 
 ## Installation
@@ -15,6 +15,7 @@ You can install v2ray telegram bot via
     $ cd v2ray_x-ui_telegramBot
     $ cp port.db /etc/x-ui/
     $ pip3 install requests
+    $ pip3 install schedule
     $ pip3 install schedule
     $ pip3 install PyYAML
     $ python3 setup.py install
@@ -44,4 +45,30 @@ for this bot you are need 2 TELEGRAM BOT TOKEN
     $ nohup python3 admin.py
 ```
 ![Logo](https://i.postimg.cc/x1qJkwrh/bot.jpg)
+
+ 
+====================
+## Ability
+
+We can:
+
+- get user list.
+
+- get Account detals(upload,download,protocol,portt,ransport,Expire date).
+
+- Active Account.
+
+- DeActive Account.
+
+- change count of connect(set multi user config).
+
+- Add Acount(just TROJAN).
+
+- Delete Account from DataBase.
+
+
+
+## Features
+
+- Add more transport configuration
 
