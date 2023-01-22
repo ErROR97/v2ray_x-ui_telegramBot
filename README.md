@@ -27,7 +27,7 @@ You can install v2ray telegram bot via
 ## Setup config.yml:
 
 for this bot you are need 2 TELEGRAM BOT TOKEN
-(you can create and get 2 bot from https://t.me/BotFather and get chat id from https://t.me/cid_bot)
+(you can create and get 2 bot from [BotFather](https://t.me/BotFather)  and get chat id from  [CidBot](https://t.me/cid_bot) )
 
 
 ```javascript
