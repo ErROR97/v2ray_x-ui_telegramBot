@@ -1,14 +1,15 @@
-
+..
+    Make sure to apply any changes to this file to README_RAW.rst as well!
 Telegram V2RAY x-ui Telegram BOT Pannel 
 ====================
-
-We use repositorie <https://github.com/python-telegram-bot/python-telegram-bot>`_ for and bilding this robot
+We use repositorie <https://github.com/python-telegram-bot/python-telegram-bot>`_. for and bilding this robot
 
 Installing 
 ==========
 
 You can install v2ray telegram bot via
 *** Use codes in root user ***
+
 .. code:: shell
     $ git https://github.com/ErROR97/v2ray_x-ui_telegramBot.git
     $ cd v2ray_x-ui_telegramBot
