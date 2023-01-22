@@ -52,11 +52,10 @@ chat_id:
 ====================
 ## Ability
 
-We can:
 
 - get user list.
 
-- get Account detals(upload,download,protocol,portt,ransport,Expire date).
+- get Account details(upload,download,protocol,port,transport,Expire date).
 
 - Active Account.
 
