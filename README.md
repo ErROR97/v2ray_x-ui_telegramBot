@@ -48,8 +48,7 @@ chat_id:
 ```
 ![Logo](https://i.postimg.cc/x1qJkwrh/bot.jpg)
 
- 
-====================
+
 ## Ability
 
 
