@@ -2,6 +2,8 @@
     Make sure to apply any changes to this file to README_RAW.rst as well!
 Telegram V2RAY x-ui Telegram BOT Pannel 
 ====================
+This site was built using [GitHub Pages](https://pages.github.com/).
+
 We use [repositorie](https://github.com/python-telegram-bot/python-telegram-bot/). for and bilding this robot
 
 Installing 
