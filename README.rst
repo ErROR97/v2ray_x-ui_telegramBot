@@ -1,18 +1,16 @@
-..
-    Make sure to apply any changes to this file to README_RAW.rst as well!
+
+# Hi, I'm Error! 👋
+
 Telegram V2RAY x-ui Telegram BOT Pannel 
 ====================
-This site was built using [GitHub Pages](https://pages.github.com/).
 
-We use [repositorie](https://github.com/python-telegram-bot/python-telegram-bot/). for and bilding this robot
-
-Installing 
-==========
+## Installation
 
 You can install v2ray telegram bot via
+
 *** Use codes in root user ***
 
-.. code:: shell
+```bash
     $ git https://github.com/ErROR97/v2ray_x-ui_telegramBot.git
     $ cd v2ray_x-ui_telegramBot
     $ cp port.db /etc/x-ui/
@@ -23,28 +21,28 @@ You can install v2ray telegram bot via
     $ python3 setup.py install
     $ cd examples
     $ nohup python3 admin.py
+```
 
-Run bot 
-==========
-for this bot you are need 2 TELEGRAM BOT TOKEN
-(you can create and get 2 bot from https://t.me/BotFather and get chat id from https://t.me/cid_bot)
+## Setup config.yml:
 
-Setup config.yml:
-
+```javascript
 bot_token:
     admin: "ADMIN BOT TOKEN"
     server: "SERVER BOT TOKEN"
 
 chat_id:
     id: "CHAT ID"
+```
 
-.. code:: shell
+## Run bot 
+for this bot you are need 2 TELEGRAM BOT TOKEN
+(you can create and get 2 bot from https://t.me/BotFather and get chat id from https://t.me/cid_bot)
+
+
+```bash
     $ cd v2ray_x-ui_telegramBot
     $ cd examples
     $ nohup python3 admin.py
+```
+![Logo](https://i.postimg.cc/x1qJkwrh/bot.jpg)
 
-==========
-
-.. image:: https://i.postimg.cc/x1qJkwrh/bot.jpg
-   :align: center
-   :alt: v2ray-telegram-bot
