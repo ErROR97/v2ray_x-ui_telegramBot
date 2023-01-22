@@ -1,7 +1,7 @@
 
 # Hi, I'm Error! 👋
 
-Telegram V2RAY x-ui Telegram BOT Pannel 
+V2RAY x-ui Telegram BOT Panel 
 ====================
 
 ## Installation
@@ -15,7 +15,6 @@ You can install v2ray telegram bot via
     $ cd v2ray_x-ui_telegramBot
     $ cp port.db /etc/x-ui/
     $ pip3 install requests
-    $ pip3 install schedule
     $ pip3 install schedule
     $ pip3 install PyYAML
     $ python3 setup.py install
