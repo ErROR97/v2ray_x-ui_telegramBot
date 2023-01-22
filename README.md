@@ -24,6 +24,10 @@ You can install v2ray telegram bot via
 
 ## Setup config.yml:
 
+for this bot you are need 2 TELEGRAM BOT TOKEN
+(you can create and get 2 bot from https://t.me/BotFather and get chat id from https://t.me/cid_bot)
+
+
 ```javascript
 bot_token:
     admin: "ADMIN BOT TOKEN"
@@ -34,9 +38,6 @@ chat_id:
 ```
 
 ## Run bot 
-for this bot you are need 2 TELEGRAM BOT TOKEN
-(you can create and get 2 bot from https://t.me/BotFather and get chat id from https://t.me/cid_bot)
-
 
 ```bash
     $ cd v2ray_x-ui_telegramBot
