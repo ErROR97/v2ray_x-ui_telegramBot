@@ -63,7 +63,7 @@ chat_id:
 
 - change count of connect(set multi user config).
 
-- Add Acount(just TROJAN).
+- Add Account(just TROJAN).
 
 - Delete Account from DataBase.
 
