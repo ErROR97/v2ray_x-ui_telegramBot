@@ -6,6 +6,7 @@ import requests;
 import subprocess;
 import threading;
 import schedule;
+import yaml
 _db_address = '/etc/x-ui/x-ui.db'
 _db_ports_address = '/etc/x-ui/port.db'
 _user_last_id = 0
@@ -62,7 +63,7 @@ def init():
     global _telegram_chat_id
     global _telegrambot_token
     cfg = " "
-    with open("python-telegram-bot/config.yml", "r") as ymlfile: cfg = yaml.load(ymlfile)
+    with open("/root/v2ray_x-ui_telegramBot/config.yml", "r") as ymlfile: cfg = yaml.load(ymlfile)
     _telegrambot_token = str(cfg["bot_token"]["server"])
     _telegram_chat_id = int(cfg["chat_id"]["id"])
 

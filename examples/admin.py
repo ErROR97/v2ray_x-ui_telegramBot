@@ -76,7 +76,7 @@ def find_pid_from_name(cmd_name,prosses_name):
 def run_filter_port():
     p = find_pid_from_name("python3","main.py")
     os.popen("kill " + p)
-    os.popen("nohup python3 /python-telegram-bot/main.py")
+    os.popen("nohup python3 /root/v2ray_x-ui_telegramBot/main.py")
 
 
 def create_port_manager_db():
@@ -495,7 +495,7 @@ def main() -> None:
     """Run the bot."""
     global chat_id
     cfg = " "
-    with open("python-telegram-bot/config.yml", "r") as ymlfile: cfg = yaml.load(ymlfile)
+    with open("/root/v2ray_x-ui_telegramBot/config.yml", "r") as ymlfile: cfg = yaml.load(ymlfile)
     token = str(cfg["bot_token"]["admin"])
     chat_id = int(cfg["chat_id"]["id"])
 
