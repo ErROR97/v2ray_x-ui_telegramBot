@@ -1,7 +1,7 @@
 
 # Hi, I'm Error! 👋
 
-V2RAY x-ui Telegram BOT Pannel 
+V2RAY x-ui Telegram BOT Panel 
 ====================
 
 ## Installation
