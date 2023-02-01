@@ -20,8 +20,6 @@ You can install v2ray telegram bot via
     $ pip3 install schedule
     $ pip3 install PyYAML
     $ python3 setup.py install
-    $ cd examples
-    $ nohup python3 admin.py
 ```
 
 ## Setup config.yml:
