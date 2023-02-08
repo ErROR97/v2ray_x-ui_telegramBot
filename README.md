@@ -13,7 +13,7 @@ You can install v2ray telegram bot via
 *** Use codes in root user ***
 
 ```bash
-    $ git https://github.com/ErROR97/v2ray_x-ui_telegramBot.git
+    $ git clone https://github.com/ErROR97/v2ray_x-ui_telegramBot.git
     $ cd v2ray_x-ui_telegramBot
     $ cp port.db /etc/x-ui/
     $ pip3 install requests
