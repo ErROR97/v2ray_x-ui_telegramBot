@@ -360,6 +360,7 @@ async def account_details(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     if update.message.chat.id == chat_id:
         username = update.message.text
         user_v2ray_ditals = get_users_ditals(username)
+
         upload = str(convert_size(user_v2ray_ditals[0]['upload']))
         download = str(convert_size(user_v2ray_ditals[0]['download']))
         enable = str(user_v2ray_ditals[0]['enable'])
@@ -367,15 +368,17 @@ async def account_details(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         port = str(user_v2ray_ditals[0]['port'])
         protocol = str(user_v2ray_ditals[0]['protocol'])
         count = str(find_count(port)[0]["count"])
-
-        massage_to_send = f"username =  {username} \n"
-        massage_to_send = massage_to_send + f"upload = {upload} \n"
-        massage_to_send = massage_to_send + f"download = {download} \n"
-        massage_to_send = massage_to_send + f"enable = {enable} \n"
-        massage_to_send = massage_to_send + f"expiry_time = {expiry_time} \n"
-        massage_to_send = massage_to_send + f"port = {port} \n"
-        massage_to_send = massage_to_send + f"count = {count} \n"
-        massage_to_send = massage_to_send + f"protocol = {protocol} \n"
+        if len(user_v2ray_ditals) != 0:
+            massage_to_send = f"username =  {username} \n"
+            massage_to_send = massage_to_send + f"upload = {upload} \n"
+            massage_to_send = massage_to_send + f"download = {download} \n"
+            massage_to_send = massage_to_send + f"enable = {enable} \n"
+            massage_to_send = massage_to_send + f"expiry_time = {expiry_time} \n"
+            massage_to_send = massage_to_send + f"port = {port} \n"
+            massage_to_send = massage_to_send + f"count = {count} \n"
+            massage_to_send = massage_to_send + f"protocol = {protocol} \n"
+        else: 
+            massage_to_send = "✔️ " + username +  " ===> not found! 🔍"
 
     await update.message.reply_html(
         massage_to_send,
