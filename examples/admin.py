@@ -360,15 +360,14 @@ async def account_details(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     if update.message.chat.id == chat_id:
         username = update.message.text
         user_v2ray_ditals = get_users_ditals(username)
-
-        upload = str(convert_size(user_v2ray_ditals[0]['upload']))
-        download = str(convert_size(user_v2ray_ditals[0]['download']))
-        enable = str(user_v2ray_ditals[0]['enable'])
-        expiry_time = str(user_v2ray_ditals[0]['expiry_time'])
-        port = str(user_v2ray_ditals[0]['port'])
-        protocol = str(user_v2ray_ditals[0]['protocol'])
-        count = str(find_count(port)[0]["count"])
         if len(user_v2ray_ditals) != 0:
+            upload = str(convert_size(user_v2ray_ditals[0]['upload']))
+            download = str(convert_size(user_v2ray_ditals[0]['download']))
+            enable = str(user_v2ray_ditals[0]['enable'])
+            expiry_time = str(user_v2ray_ditals[0]['expiry_time'])
+            port = str(user_v2ray_ditals[0]['port'])
+            protocol = str(user_v2ray_ditals[0]['protocol'])
+            count = str(find_count(port)[0]["count"])
             massage_to_send = f"username =  {username} \n"
             massage_to_send = massage_to_send + f"upload = {upload} \n"
             massage_to_send = massage_to_send + f"download = {download} \n"
