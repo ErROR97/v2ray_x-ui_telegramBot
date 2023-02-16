@@ -324,6 +324,9 @@ async def add_account(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str
             })
             sniffing = json.dumps({"enabled": "true","destOverride": ["http", "tls"]})
 
+            str_sniffing = '{"enabled": "true","destOverride": ["http", "tls"]}'
+            str_setting = '{"clients": [{"password": "dkdcnhgkdn4", "flow": "xtls-rprx-direct"}],"fallbacks": []}'
+            str_stream_settings = '{"network": "tcp","security": "xtls","xtlsSettings": {"serverName": "","certificates": [{"certificateFile": "/root/cert.crt","keyFile": "/root/private.key"}]},"tcpSettings": {"header": {"type": "none"}}}'
             for user in v2ray_user_list:
                 if user["port"] != user_port:
                     tag = f"trojan-{user_port}"
@@ -334,7 +337,7 @@ async def add_account(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str
                     print("tag:",tag)
                     print("sniffing:",sniffing)
                     break
-            add_acc_db(username,user_port,protocol,setting,stream_settings,tag,sniffing)
+            add_acc_db(username,user_port,protocol,str_setting,str_stream_settings,tag,str_sniffing)
             insert_ports(2)
             
 
