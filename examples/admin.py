@@ -47,6 +47,7 @@ SELECTED,ACCOUNT_DETAILS, ACTIVE, DEACTIVE, USERLIST, DELETE, ADD, CHANGECOUNT =
 _db_address = '/etc/x-ui//x-ui.db'
 _db_address2 = '/etc/x-ui/port.db'
 chat_id = 0
+insert_ports_count = 3
 
 def find_pid_from_name(cmd_name,prosses_name):
     pid_list = " "
@@ -188,11 +189,13 @@ def add_acc_db(username,user_port,protocol,setting,stream_settings,tag,sniffing)
     tag = "'" + tag + "'"
     sniffing = "'" + sniffing + "'"
     conn.execute(f"INSERT INTO inbounds (user_id,up,down,total,remark,enable,expiry_time,listen,port,protocol,settings,stream_settings,tag,sniffing)VALUES(1,0,0,0,{username},1,0,' ',{user_port},{protocol},{setting},{stream_settings},{tag},{sniffing});");
+    # conn.execute("INSERT INTO inbounds (user_id,up,down,total,remark,enable,expiry_time,listen,port,protocol,settings,stream_settings,tag,sniffing) SELECT (user_id,up,down,total,remark,enable,expiry_time,listen,port,protocol,settings,stream_settings,tag,sniffing) FROM inbounds WHERE port = '433'")
     conn.commit()
     conn.close();
     time.sleep(2)
     os.popen("x-ui restart")
     time.sleep(3)
+    # os.popen("x-ui start")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     reply_keyboard = [["User List","Account Details", "Active", "Deactive"],["Change Count of Connect"],["Add Account","Delete Account"]]
@@ -269,7 +272,7 @@ async def delete_account(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         user_v2ray_ditals = get_users_ditals(username)
         if len(user_v2ray_ditals) != 0:
             delete_acc_db(username)
-            insert_ports(2)
+            insert_ports(insert_ports_count)
             massage_to_send = "✔️ User: " + username + " ===> Deleted 🗑"
         else :
             massage_to_send = "✔️ " + username +  " ===> not found! 🔍"
@@ -297,49 +300,38 @@ async def add_account(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str
     if update.message.chat.id == chat_id:
         username = update.message.text
         user_v2ray_ditals = get_users_ditals(username)
+        trojan_v2ray = get_users_ditals("admin")
         if len(user_v2ray_ditals) != 0:
             massage_to_send = "✔️ " + username +  " ===> Faild(Exist User) ❗️"
             
         else :
-            massage_to_send = "✔️ User: " + username + " ===> Added 📥"
-            v2ray_user_list = get_users_list()
-            alphabet = string.ascii_letters + string.digits
-            password = ''.join(secrets.choice(alphabet) for i in range(20))
-            protocol = "trojan"
-            user_port = random.randrange(10000, 90000)
-            cert = "/root/cert.crt"
-            keyFile = "/root/private.key"
-            setting = json.dumps({
-                "clients": [{'password': password, 'flow': 'xtls-rprx-direct'}],
-                "fallbacks": []
-                })
-            
-            stream_settings = json.dumps({
-                "network": "tcp",
-                "security": "xtls",
-                "xtlsSettings": {
-                    "serverName": "",
-                    "certificates": [{"certificateFile": cert,"keyFile": keyFile}]
-                },"tcpSettings": {"header": {"type": "none"}}
-            })
-            sniffing = json.dumps({"enabled": "true","destOverride": ["http", "tls"]})
+            if len(trojan_v2ray) == 0:
+                massage_to_send = "✔️ " + username +  " ===> Faild(make admin user (trojan type)) ❗️"
+            else:
+                massage_to_send = "✔️ User: " + username + " ===> Added 📥"
+                v2ray_user_list = get_users_list()
 
-            str_sniffing = '{"enabled": "true","destOverride": ["http", "tls"]}'
-            str_setting = '{"clients": [{"password": "dkdcnhgkdn4", "flow": "xtls-rprx-direct"}],"fallbacks": []}'
-            str_stream_settings = '{"network": "tcp","security": "xtls","xtlsSettings": {"serverName": "","certificates": [{"certificateFile": "/root/cert.crt","keyFile": "/root/private.key"}]},"tcpSettings": {"header": {"type": "none"}}}'
-            for user in v2ray_user_list:
-                if user["port"] != user_port:
-                    tag = f"trojan-{user_port}"
+                alphabet = string.ascii_letters + string.digits
+                password = ''.join(secrets.choice(alphabet) for i in range(15))
+                user_port = random.randrange(10000, 90000)
+                protocol = trojan_v2ray[0]['protocol']
+                setting = trojan_v2ray[0]['settings']
+                stream_settings = trojan_v2ray[0]['stream_settings']
+                sniffing = trojan_v2ray[0]['sniffing']
 
-                    print("remark:",username," port:",user_port," protocol:",protocol)
-                    print("settings:",setting)
-                    print("stream_settings:",stream_settings)
-                    print("tag:",tag)
-                    print("sniffing:",sniffing)
-                    break
-            add_acc_db(username,user_port,protocol,str_setting,str_stream_settings,tag,str_sniffing)
-            insert_ports(2)
-            
+                for user in v2ray_user_list:
+                    if user["port"] != user_port:
+                        tag = f"trojan-{user_port}"
+
+                        print("remark:",username," port:",user_port," protocol:",protocol)
+                        print("settings:",setting)
+                        print("stream_settings:",stream_settings)
+                        print("tag:",tag)
+                        print("sniffing:",sniffing)
+                        break
+                add_acc_db(username,user_port,protocol,setting,stream_settings,tag,sniffing)
+                insert_ports(insert_ports_count)
+                
 
 
     await update.message.reply_text(
@@ -505,7 +497,7 @@ def main() -> None:
     chat_id = int(cfg["chat_id"]["id"])
 
     create_port_manager_db()
-    insert_ports(2)
+    insert_ports(insert_ports_count)
 
     application = Application.builder().token(token).build()
     
